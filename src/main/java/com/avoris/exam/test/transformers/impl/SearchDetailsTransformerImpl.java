@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 public class SearchDetailsTransformerImpl implements SearchDetailsTransformer {
     @Override
     public SearchDetailsDTO modelToDto(SearchDetails searchDetails) {
-        return new SearchDetailsDTO(searchDetails.getHotelId(),searchDetails.getCheckIn(), searchDetails.getCheckOut(), searchDetails.getAges());
+        return new SearchDetailsDTO(searchDetails.getHotelId(), searchDetails.getCheckIn(), searchDetails.getCheckOut(), searchDetails.getAges());
     }
 
     @Override
     public SearchDetails dtoToModel(SearchDetailsDTO searchDetailsDTO) {
-        return new SearchDetails(searchDetailsDTO.getHotelId(),searchDetailsDTO.getCheckIn(),searchDetailsDTO.getCheckOut(),searchDetailsDTO.getAges());
+        return new SearchDetails(searchDetailsDTO.getHotelId(), searchDetailsDTO.getCheckIn(), searchDetailsDTO.getCheckOut(), searchDetailsDTO.getAges());
     }
 }

@@ -2,9 +2,8 @@ package com.avoris.exam.test.controllers;
 
 import com.avoris.exam.test.dtos.SearchDTO;
 import com.avoris.exam.test.dtos.SearchDetailsDTO;
+import com.avoris.exam.test.dtos.SearchResultsDTO;
 import com.avoris.exam.test.facades.SearchFacade;
-import com.avoris.exam.test.model.Search;
-import com.avoris.exam.test.model.SearchDetails;
 import jakarta.annotation.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
@@ -24,14 +23,21 @@ public class SearchController {
     }
 
     @GetMapping("/hello-world")
-    public String helloWorld(){
+    public String helloWorld() {
         return "Hello World";
     }
 
     @PostMapping("/search")
-    public ResponseEntity<SearchDTO> addSearch(@RequestBody @NonNull SearchDetailsDTO searchDetailsDTO){
+    public ResponseEntity<SearchDTO> addSearch(@RequestBody @NonNull SearchDetailsDTO searchDetailsDTO) {
 
         SearchDTO searchDTO = searchFacade.addSearch(searchDetailsDTO);
         return ResponseEntity.accepted().body(searchDTO);
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<SearchResultsDTO> addSearch(@RequestBody @NonNull SearchDTO searchDTO) {
+
+        SearchResultsDTO searchResultsDTO = searchFacade.findResults(searchDTO);
+        return ResponseEntity.ok().body(searchResultsDTO);
     }
 }

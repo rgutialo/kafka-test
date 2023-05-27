@@ -9,13 +9,18 @@ public class SearchDTO implements Serializable {
 
     private final String searchId;
 
+    public SearchDTO(final String searchId) {
+        this.searchId = searchId;
+    }
+
+    public SearchDTO() {
+        this.searchId = "";
+    }
+
     public String getSearchId() {
         return searchId;
     }
 
-    public SearchDTO(final String searchId) {
-        this.searchId = searchId;
-    }
 
     @Override
     public String toString() {

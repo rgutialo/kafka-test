@@ -6,5 +6,6 @@ import com.avoris.exam.test.model.SearchDetails;
 public interface SearchDetailsTransformer {
 
     public SearchDetailsDTO modelToDto(final SearchDetails searchDetails);
+
     public SearchDetails dtoToModel(final SearchDetailsDTO searchDetailsDTO);
 }
