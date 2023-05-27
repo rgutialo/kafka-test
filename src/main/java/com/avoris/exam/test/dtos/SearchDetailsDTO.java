@@ -1,16 +1,19 @@
-package com.avoris.exam.test.model;
+package com.avoris.exam.test.dtos;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class SearchDetails implements Serializable {
+/**
+ * Contains basic information about SearchDetails exposed to external systems
+ */
+public class SearchDetailsDTO implements Serializable {
 
     private final String hotelId;
     private final String checkIn;
     private final String checkOut;
     private final List<Integer> ages;
 
-    public SearchDetails(final String hotelId, final String checkIn, final String checkOut, final List<Integer> ages) {
+    public SearchDetailsDTO(final String hotelId, final String checkIn, final String checkOut, final List<Integer> ages) {
         this.hotelId = hotelId;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
@@ -35,7 +38,7 @@ public class SearchDetails implements Serializable {
 
     @Override
     public String toString() {
-        return "SearchDetails{" +
+        return "SearchDetailsDTO{" +
                 "hotelId='" + hotelId + '\'' +
                 ", checkIn='" + checkIn + '\'' +
                 ", checkOut='" + checkOut + '\'' +
@@ -43,24 +46,23 @@ public class SearchDetails implements Serializable {
                 '}';
     }
 /*
-    public SearchDetails(final SearchDetails.Builder<?> builder) {
+    public SearchDetailsDTO(final Builder<?> builder) {
         this.hotelId = builder.hotelId;
         this.checkIn = builder.checkIn;
         this.checkOut = builder.checkOut;
         this.ages = builder.ages;
     }
-
     @SuppressWarnings("java:S3740")
-    public static SearchDetails.Builder builder() {
-        return new SearchDetails.Builder() {
+    public static Builder builder() {
+        return new Builder() {
             @Override
-            public SearchDetails.Builder getThis() {
+            public Builder getThis() {
                 return this;
             }
         };
     }
 
-    public abstract static class Builder<T extends SearchDetails.Builder<T>> {
+    public abstract static class Builder<T extends Builder<T>> {
 
         private String hotelId;
         private String checkIn;
@@ -89,9 +91,10 @@ public class SearchDetails implements Serializable {
             return getThis();
         }
 
-        public SearchDetails build() {
-            return new SearchDetails(this);
+        public SearchDetailsDTO build() {
+            return new SearchDetailsDTO(this);
         }
     }
-    */
+
+ */
 }

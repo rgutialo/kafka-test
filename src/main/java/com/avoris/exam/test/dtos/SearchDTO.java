@@ -1,40 +1,44 @@
-package com.avoris.exam.test.model;
+package com.avoris.exam.test.dtos;
 
 import java.io.Serializable;
 
-public class Search implements Serializable {
+/**
+ * Contains basic information about Search exposed to external systems
+ */
+public class SearchDTO implements Serializable {
+
     private final String searchId;
 
     public String getSearchId() {
         return searchId;
     }
 
-    public Search(final String searchId) {
+    public SearchDTO(final String searchId) {
         this.searchId = searchId;
     }
 
     @Override
     public String toString() {
-        return "Search{" +
+        return "SearchDTO{" +
                 "searchId='" + searchId + '\'' +
                 '}';
     }
     /*
-    public Search(final Search.Builder<?> builder) {
+    public SearchDTO(final SearchDTO.Builder<?> builder) {
         this.searchId = builder.searchId;
     }
 
     @SuppressWarnings("java:S3740")
-    public static Search.Builder builder() {
-        return new Search.Builder() {
+    public static SearchDTO.Builder builder() {
+        return new SearchDTO.Builder() {
             @Override
-            public Search.Builder getThis() {
+            public SearchDTO.Builder getThis() {
                 return this;
             }
         };
     }
 
-    public abstract static class Builder<T extends Search.Builder<T>> {
+    public abstract static class Builder<T extends SearchDTO.Builder<T>> {
 
         private String searchId;
 
@@ -44,10 +48,9 @@ public class Search implements Serializable {
             return getThis();
         }
 
-        public Search build() {
-            return new Search(this);
+        public SearchDTO build() {
+            return new SearchDTO(this);
         }
     }
-
      */
 }
