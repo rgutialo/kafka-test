@@ -12,6 +12,9 @@ import com.avoris.exam.test.transformers.Transformer;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 
+/**
+ * Implementation of {@link SearchFacade}
+ */
 @Component
 public class SearchFacadeImpl implements SearchFacade {
 
@@ -31,6 +34,9 @@ public class SearchFacadeImpl implements SearchFacade {
         this.searchService = searchService;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public SearchDTO addSearch(final SearchDetailsDTO searchDetailsDTO) {
         final SearchDetails searchDetails = searchDetailsTransformer.dtoToModel(searchDetailsDTO);
@@ -39,6 +45,9 @@ public class SearchFacadeImpl implements SearchFacade {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public SearchResultsDTO findResults(SearchDTO searchDetailsDTO) {
         final Search search = searchTransformer.dtoToModel(searchDetailsDTO);

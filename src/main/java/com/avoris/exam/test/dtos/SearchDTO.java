@@ -3,7 +3,7 @@ package com.avoris.exam.test.dtos;
 import java.io.Serializable;
 
 /**
- * Contains basic information about Search exposed to external systems
+ * Contains basic information about Search object exposed to external systems
  */
 public class SearchDTO implements Serializable {
 

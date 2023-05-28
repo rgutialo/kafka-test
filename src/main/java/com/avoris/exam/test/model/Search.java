@@ -2,6 +2,9 @@ package com.avoris.exam.test.model;
 
 import java.io.Serializable;
 
+/**
+ * Internal Search model implementation
+ */
 public class Search implements Serializable {
     private final String searchId;
 

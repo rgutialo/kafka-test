@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Main Rest Controller for this test
+ */
 @RestController
 public class SearchController {
 
@@ -22,11 +25,12 @@ public class SearchController {
         this.searchFacade = searchFacade;
     }
 
-    @GetMapping("/hello-world")
-    public String helloWorld() {
-        return "Hello World";
-    }
-
+    /**
+     * Add a new Search to the system
+     *
+     * @param searchDetailsDTO must be not null
+     * @return searchDTO object with searchId for this search
+     */
     @PostMapping("/search")
     public ResponseEntity<SearchDTO> addSearch(@RequestBody @NonNull SearchDetailsDTO searchDetailsDTO) {
 
@@ -34,6 +38,12 @@ public class SearchController {
         return ResponseEntity.accepted().body(searchDTO);
     }
 
+    /**
+     * Find results based on a certain searchId
+     *
+     * @param searchDTO must be not null
+     * @return SearchResults object with searchId, search Details and number of results
+     */
     @GetMapping("/count")
     public ResponseEntity<SearchResultsDTO> findResults(@RequestBody @NonNull SearchDTO searchDTO) {
 

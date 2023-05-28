@@ -1,5 +1,8 @@
 package com.avoris.exam.test.model;
 
+/**
+ * Internal Search Results model implementation
+ */
 public class SearchResults {
 
     private final String searchId;

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Contains basic information about SearchDetails exposed to external systems
+ * Contains basic information about Search Details object exposed to external systems
  */
 public class SearchDetailsDTO implements Serializable {
 

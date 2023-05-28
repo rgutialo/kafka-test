@@ -8,8 +8,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Implementation of {@link SearchService}
+ */
 @Service
 public class SearchServiceImpl implements SearchService {
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Search addSearch(SearchDetails searchDetails) {
         //TODO: Send to kaftka
@@ -17,6 +24,9 @@ public class SearchServiceImpl implements SearchService {
         return new Search("1234");
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public SearchResults findResults(Search search) {
         //TODO: Send to Mongo

@@ -10,6 +10,9 @@ import com.avoris.exam.test.transformers.Transformer;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 
+/**
+ * Implementation of {@link Transformer}
+ */
 @Component
 public class SearchResultsTransformerImpl implements Transformer<SearchResults, SearchResultsDTO> {
 
@@ -23,12 +26,18 @@ public class SearchResultsTransformerImpl implements Transformer<SearchResults, 
         this.searchDetailsTransformer = searchDetailsTransformer;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public SearchResultsDTO modelToDto(SearchResults searchResults) {
 
         return new SearchResultsDTO(searchResults.getSearchId(), searchDetailsTransformer.modelToDto(searchResults.getSearch()), searchResults.getCount());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public SearchResults dtoToModel(SearchResultsDTO searchResultsDTO) {
 

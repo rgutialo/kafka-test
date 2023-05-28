@@ -1,5 +1,8 @@
 package com.avoris.exam.test.dtos;
 
+/**
+ * Contains basic information about Search Results object exposed to external systems
+ */
 public class SearchResultsDTO {
     private final String searchId;
     private final SearchDetailsDTO search;

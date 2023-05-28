@@ -3,6 +3,9 @@ package com.avoris.exam.test.model;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Internal Search  Details model implementation
+ */
 public class SearchDetails implements Serializable {
 
     private final String hotelId;
