@@ -8,9 +8,7 @@ import com.avoris.exam.test.model.Search;
 import com.avoris.exam.test.model.SearchDetails;
 import com.avoris.exam.test.model.SearchResults;
 import com.avoris.exam.test.services.SearchService;
-import com.avoris.exam.test.transformers.SearchDetailsTransformer;
-import com.avoris.exam.test.transformers.SearchResultsTransformer;
-import com.avoris.exam.test.transformers.SearchTransformer;
+import com.avoris.exam.test.transformers.Transformer;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 
@@ -18,15 +16,15 @@ import org.springframework.stereotype.Component;
 public class SearchFacadeImpl implements SearchFacade {
 
     @Resource
-    private final SearchDetailsTransformer searchDetailsTransformer;
+    private final Transformer<SearchDetails, SearchDetailsDTO> searchDetailsTransformer;
     @Resource
-    private final SearchTransformer searchTransformer;
+    private final Transformer<Search, SearchDTO> searchTransformer;
     @Resource
-    private final SearchResultsTransformer searchResultsTransformer;
+    private final Transformer<SearchResults, SearchResultsDTO> searchResultsTransformer;
     @Resource
     private final SearchService searchService;
 
-    public SearchFacadeImpl(SearchDetailsTransformer searchDetailsTransformer, SearchTransformer searchTransformer, SearchResultsTransformer searchResultsTransformer, final SearchService searchService) {
+    public SearchFacadeImpl(Transformer<SearchDetails, SearchDetailsDTO> searchDetailsTransformer, Transformer<Search, SearchDTO> searchTransformer, Transformer<SearchResults, SearchResultsDTO> searchResultsTransformer, final SearchService searchService) {
         this.searchDetailsTransformer = searchDetailsTransformer;
         this.searchTransformer = searchTransformer;
         this.searchResultsTransformer = searchResultsTransformer;
