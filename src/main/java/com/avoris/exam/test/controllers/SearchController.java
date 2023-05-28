@@ -35,7 +35,7 @@ public class SearchController {
     }
 
     @GetMapping("/count")
-    public ResponseEntity<SearchResultsDTO> addSearch(@RequestBody @NonNull SearchDTO searchDTO) {
+    public ResponseEntity<SearchResultsDTO> findResults(@RequestBody @NonNull SearchDTO searchDTO) {
 
         SearchResultsDTO searchResultsDTO = searchFacade.findResults(searchDTO);
         return ResponseEntity.ok().body(searchResultsDTO);
