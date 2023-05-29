@@ -17,7 +17,7 @@ class SearchDetailsTest {
 
     @BeforeEach
     private void setUp() {
-        testObj = new SearchDetails(HOTEL_ID, CHECK_IN, CHECK_OUT, AGES);
+        testObj = new SearchDetails("1111", HOTEL_ID, CHECK_IN, CHECK_OUT, "1234", AGES);
     }
 
 

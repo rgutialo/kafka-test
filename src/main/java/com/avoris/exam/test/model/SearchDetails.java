@@ -1,22 +1,31 @@
 package com.avoris.exam.test.model;
 
-import java.io.Serializable;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.List;
 
 /**
  * Internal Search  Details model implementation
  */
-public class SearchDetails implements Serializable {
+@Document("SearchDetails")
+public class SearchDetails  {
 
+    @Id
+    private final String id;
     private final String hotelId;
     private final String checkIn;
     private final String checkOut;
+    private final String searchId;
     private final List<Integer> ages;
 
-    public SearchDetails(final String hotelId, final String checkIn, final String checkOut, final List<Integer> ages) {
+    public SearchDetails(
+            final String id, final String hotelId, final String checkIn, final String checkOut, String searchId, final List<Integer> ages) {
+        this.id = id;
         this.hotelId = hotelId;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
+        this.searchId = searchId;
         this.ages = ages;
     }
 

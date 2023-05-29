@@ -24,6 +24,6 @@ public class SearchDetailsTransformerImpl implements Transformer<SearchDetails, 
      */
     @Override
     public SearchDetails dtoToModel(SearchDetailsDTO searchDetailsDTO) {
-        return new SearchDetails(searchDetailsDTO.getHotelId(), searchDetailsDTO.getCheckIn(), searchDetailsDTO.getCheckOut(), searchDetailsDTO.getAges());
+        return new SearchDetails("11111",searchDetailsDTO.getHotelId(), searchDetailsDTO.getCheckIn(), searchDetailsDTO.getCheckOut(), "1234", searchDetailsDTO.getAges());
     }
 }
