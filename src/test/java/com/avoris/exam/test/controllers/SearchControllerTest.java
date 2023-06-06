@@ -35,7 +35,7 @@ class SearchControllerTest {
     @Test
     void findResults_OnceSearchIsValid_ThenSearchFacadeFindResultsIsInvoked() {
 
-        testObj.findResults(searchDTOMock);
-        verify(searchFacadeMock).findResults(searchDTOMock);
+        testObj.findResults("1234");
+        verify(searchFacadeMock).findResults("1234");
     }
 }

@@ -7,10 +7,7 @@ import com.avoris.exam.test.facades.SearchFacade;
 import jakarta.annotation.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Main Rest Controller for this test
@@ -41,13 +38,14 @@ public class SearchController {
     /**
      * Find results based on a certain searchId
      *
-     * @param searchDTO must be not null
+     * @param searchId must be not null
      * @return SearchResults object with searchId, search Details and number of results
      */
     @GetMapping("/count")
-    public ResponseEntity<SearchResultsDTO> findResults(@RequestBody @NonNull SearchDTO searchDTO) {
+    @ResponseBody
+    public ResponseEntity<SearchResultsDTO> findResults(@RequestParam final String searchId) {
 
-        SearchResultsDTO searchResultsDTO = searchFacade.findResults(searchDTO);
+        SearchResultsDTO searchResultsDTO = searchFacade.findResults(searchId);
         return ResponseEntity.ok().body(searchResultsDTO);
     }
 }

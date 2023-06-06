@@ -20,8 +20,8 @@ public interface SearchFacade {
     /**
      * Manages results from certain search id requests
      *
-     * @param searchDTO {@link SearchDTO}containing search id to look for
+     * @param searchId
      * @return {@link SearchResultsDTO} which contains details about the search object received
      */
-    public SearchResultsDTO findResults(final SearchDTO searchDTO);
+    public SearchResultsDTO findResults(final String searchId);
 }

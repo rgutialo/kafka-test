@@ -5,6 +5,8 @@ import com.avoris.exam.test.model.SearchDetails;
 import com.avoris.exam.test.transformers.Transformer;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * Implementation of {@link Transformer}
  */
@@ -24,6 +26,14 @@ public class SearchDetailsTransformerImpl implements Transformer<SearchDetails, 
      */
     @Override
     public SearchDetails dtoToModel(SearchDetailsDTO searchDetailsDTO) {
-        return new SearchDetails("11111",searchDetailsDTO.getHotelId(), searchDetailsDTO.getCheckIn(), searchDetailsDTO.getCheckOut(), "1234", searchDetailsDTO.getAges());
+        final SearchDetails searchDetailsResponse = new SearchDetails();
+        searchDetailsResponse.setId("1111");
+        searchDetailsResponse.setHotelId("1234aBc");
+        searchDetailsResponse.setCheckIn("29/12/2023");
+        searchDetailsResponse.setCheckOut("21/12/2023");
+        searchDetailsResponse.setSearchId("1234");
+        searchDetailsResponse.setAges(List.of(3, 29, 30, 1));
+
+        return searchDetailsResponse;
     }
 }
