@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface SearchRepository extends MongoRepository<SearchDetails, String> {
 
-    SearchResults findItemBySearchId(String searchId);
+    List<SearchDetails> findItemBySearchId(String searchId);
 
     List<SearchDetails> findAll();
 }

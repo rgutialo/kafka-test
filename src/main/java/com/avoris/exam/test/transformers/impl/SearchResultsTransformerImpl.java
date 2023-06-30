@@ -32,7 +32,11 @@ public class SearchResultsTransformerImpl implements Transformer<SearchResults, 
     @Override
     public SearchResultsDTO modelToDto(SearchResults searchResults) {
 
-        return new SearchResultsDTO(searchResults.getSearchId(), searchDetailsTransformer.modelToDto(searchResults.getSearch()), searchResults.getCount());
+        return SearchResultsDTO.builder()
+                .searchId(searchResults.getSearchId())
+                .search(searchDetailsTransformer.modelToDto(searchResults.getSearch()))
+                .count(searchResults.getCount())
+                .build();
     }
 
     /**
@@ -41,6 +45,10 @@ public class SearchResultsTransformerImpl implements Transformer<SearchResults, 
     @Override
     public SearchResults dtoToModel(SearchResultsDTO searchResultsDTO) {
 
-        return new SearchResults(searchResultsDTO.getSearchId(), searchDetailsTransformer.dtoToModel(searchResultsDTO.getSearch()), searchResultsDTO.getCount());
+        return SearchResults.builder()
+                .searchId(searchResultsDTO.getSearchId())
+                .search(searchDetailsTransformer.dtoToModel(searchResultsDTO.getSearch()))
+                .count(searchResultsDTO.getCount())
+                .build();
     }
 }

@@ -15,7 +15,9 @@ public class SearchTransformerImpl implements Transformer<Search, SearchDTO> {
      */
     @Override
     public SearchDTO modelToDto(Search search) {
-        return new SearchDTO(search.getSearchId());
+        return SearchDTO.builder()
+                .searchId(search.getSearchId())
+                .build();
     }
 
     /**
@@ -23,6 +25,9 @@ public class SearchTransformerImpl implements Transformer<Search, SearchDTO> {
      */
     @Override
     public Search dtoToModel(SearchDTO searchDTO) {
-        return new Search(searchDTO.getSearchId());
+
+        return Search.builder()
+                .searchId(searchDTO.getSearchId())
+                .build();
     }
 }

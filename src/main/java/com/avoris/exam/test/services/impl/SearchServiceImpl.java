@@ -52,15 +52,11 @@ public class SearchServiceImpl implements SearchService {
     @Override
     public SearchResults findResults(Search search) {
         //TODO: Send to Mongo
-        final Search searchResponse = new Search("xxxx");
-        final SearchDetails searchDetailsResponse = new SearchDetails();
-        searchDetailsResponse.setId("1111");
-        searchDetailsResponse.setHotelId("1234aBc");
-        searchDetailsResponse.setCheckIn("29/12/2023");
-        searchDetailsResponse.setCheckOut("21/12/2023");
-        searchDetailsResponse.setSearchId("1234");
-        searchDetailsResponse.setAges(List.of(3, 29, 30, 1));
-        List<SearchDetails> itemBySearchId = searchRepository.findAll();
-        return new SearchResults(searchResponse.getSearchId(), searchDetailsResponse, 100);
+        final List<SearchDetails> searchResult = searchRepository.findItemBySearchId(search.getSearchId());
+        return SearchResults.builder()
+                .searchId(search.getSearchId())
+                .search(searchResult.get(0))
+                .count(searchResult.size())
+                .build();
     }
 }

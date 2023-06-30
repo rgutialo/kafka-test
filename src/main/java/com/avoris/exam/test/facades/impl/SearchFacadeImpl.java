@@ -50,8 +50,10 @@ public class SearchFacadeImpl implements SearchFacade {
      */
     @Override
     public SearchResultsDTO findResults(String searchId) {
-        final SearchDTO searchDetailsDTO = new SearchDTO(searchId);
-        final Search search = searchTransformer.dtoToModel(searchDetailsDTO);
+        final SearchDTO searchDTO = SearchDTO.builder()
+                .searchId(searchId)
+                .build();
+        final Search search = searchTransformer.dtoToModel(searchDTO);
         final SearchResults searchResults = searchService.findResults(search);
         return searchResultsTransformer.modelToDto(searchResults);
     }

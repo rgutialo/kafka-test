@@ -18,7 +18,12 @@ public class SearchDetailsTransformerImpl implements Transformer<SearchDetails, 
      */
     @Override
     public SearchDetailsDTO modelToDto(SearchDetails searchDetails) {
-        return new SearchDetailsDTO(searchDetails.getHotelId(), searchDetails.getCheckIn(), searchDetails.getCheckOut(), searchDetails.getAges());
+        return SearchDetailsDTO.builder()
+                .hotelId(searchDetails.getHotelId())
+                .checkIn(searchDetails.getCheckIn())
+                .checkOut(searchDetails.getCheckOut())
+                .ages(searchDetails.getAges())
+                .build();
     }
 
     /**
@@ -26,14 +31,13 @@ public class SearchDetailsTransformerImpl implements Transformer<SearchDetails, 
      */
     @Override
     public SearchDetails dtoToModel(SearchDetailsDTO searchDetailsDTO) {
-        final SearchDetails searchDetailsResponse = new SearchDetails();
-        searchDetailsResponse.setId("1111");
-        searchDetailsResponse.setHotelId("1234aBc");
-        searchDetailsResponse.setCheckIn("29/12/2023");
-        searchDetailsResponse.setCheckOut("21/12/2023");
-        searchDetailsResponse.setSearchId("1234");
-        searchDetailsResponse.setAges(List.of(3, 29, 30, 1));
-
-        return searchDetailsResponse;
+        return SearchDetails.builder()
+                .id("TEST")
+                .hotelId(searchDetailsDTO.getHotelId())
+                .checkIn(searchDetailsDTO.getCheckIn())
+                .checkOut(searchDetailsDTO.getCheckOut())
+                .ages(searchDetailsDTO.getAges())
+                .searchId("TEST")
+                .build();
     }
 }
